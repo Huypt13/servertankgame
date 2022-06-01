@@ -107,7 +107,6 @@ class ServerHandle {
     if (connection.player.lobby) {
       this.lobbys[connection.player.lobby].onLeaveLobby(connection);
     }
-    //
     this.lobbys[newLobbyId].onEnterLobby(connection);
   }
 }
