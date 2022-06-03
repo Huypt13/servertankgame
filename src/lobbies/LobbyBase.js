@@ -23,6 +23,7 @@ class LobbyBase {
     );
     lobby.connections.push(connection);
     player.lobby = lobby.id;
+    player.posInLobby = lobby.connections.length;
     connection.lobby = lobby;
   }
   onLeaveLobby(connection) {

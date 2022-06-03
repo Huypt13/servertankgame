@@ -246,14 +246,20 @@ class GameLobby extends LobbyBase {
     const lobby = this;
     let connections = lobby.connections;
     let socket = connection.socket;
-    const returnData = { id: connection.player.id };
+    const returnData = {
+      id: connection.player.id,
+      position: { x: connection.player.posInLobby, y: 0 },
+    };
     socket.emit("spawn", returnData);
     // socket.broadcast.to(lobby.id).emit("spawn", returnData);
 
     // tell myself about all people in room
     connections.forEach((c) => {
       if (connection.player.id != c.player.id) {
-        socket.emit("spawn", { id: c.player.id });
+        socket.emit("spawn", {
+          id: c.player.id,
+          position: { x: connection.player.posInLobby, y: 0 },
+        });
       }
     });
   }

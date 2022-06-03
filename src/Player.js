@@ -14,6 +14,7 @@ module.exports = class Player {
     this.isDead = false;
     this.respawnTicker = 0;
     this.respawnTime = 0;
+    this.posInLobby = 0;
   }
 
   displayInfor() {
@@ -39,7 +40,7 @@ module.exports = class Player {
         this.respawnTicker = 0;
         this.respawnTime = 0;
         this.health = 100;
-        this.position = new Vector2(-3, 1); // can change
+        this.position = new Vector2(-3, this.posInLobby); // can change
         return true;
       }
     }
